@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClipMeta",
+  "type": "object",
+  "properties": {
+    "platform": {"type": "string"},
+    "start": {"type": "number"},
+    "end": {"type": "number"},
+    "score": {"type": "number"},
+    "features": {
+      "type": "object",
+      "additionalProperties": {"type": "number"}
+    }
+  },
+  "required": ["platform", "start", "end", "score", "features"]
+}
