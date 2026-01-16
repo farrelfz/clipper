@@ -1,0 +1,92 @@
+bundle:
+  platforms: [tiktok, shorts, reels]
+  clips_per_platform: 3
+  overlap_max_ratio: 0.25
+  candidate_pool: 80
+analysis:
+  speaker_mode: hybrid
+  face_backend: mediapipe
+  face_analysis_fps: 12
+  switch_hysteresis_ms: 500
+  confidence_threshold: 0.15
+  max_pan_speed: 0.18
+  max_zoom_rate: 0.15
+  crop_safe_margin_ratio: 0.15
+clip_selection:
+  require_hook_first_seconds: 3
+  avoid_mid_sentence_cut: true
+  use_scene_cut_hint: true
+  tiktok:
+    min_s: 12
+    max_s: 35
+  shorts:
+    min_s: 15
+    max_s: 45
+  reels:
+    min_s: 20
+    max_s: 60
+render:
+  width: 1080
+  height: 1920
+  fps_target: 60
+  fps_fallback: 30
+  codec: libx264
+  preset: medium
+  crf: 17
+  scaler: lanczos
+  pix_fmt: yuv420p
+  audio_codec: aac
+  audio_rate: 48000
+  audio_bitrate: 192k
+  loudness_normalize: true
+  sharpen: false
+  denoise: false
+subtitles:
+  punctuation: true
+  max_lines: 2
+  max_chars_per_line: 26
+  highlight: true
+  burn_in: true
+  safe_margin_ratio: 0.08
+templates:
+  tiktok:
+    name: tiktok_bold_highlight
+    font: "Montserrat"
+    font_size: 64
+    primary_color: "&HFFFFFF&"
+    outline_color: "&H000000&"
+    outline: 4
+    shadow: 2
+    bold: true
+    box: false
+  shorts:
+    name: shorts_clean
+    font: "Arial"
+    font_size: 56
+    primary_color: "&HFFFFFF&"
+    outline_color: "&H000000&"
+    outline: 3
+    shadow: 1
+    bold: false
+    box: false
+  reels:
+    name: reels_elegant
+    font: "Georgia"
+    font_size: 54
+    primary_color: "&HFFFFFF&"
+    outline_color: "&H000000&"
+    outline: 2
+    shadow: 1
+    bold: false
+    box: true
+    box_color: "&H66000000&"
+niches:
+  tiktok:
+    keywords: ["growth", "experiment", "metrics", "systems", "models"]
+    cta: ["try this", "follow", "share"]
+  shorts:
+    keywords: ["insight", "framework", "strategy", "learn", "concept"]
+    cta: ["subscribe", "watch next"]
+  reels:
+    keywords: ["story", "lesson", "journey", "creative", "inspire"]
+    cta: ["save", "replay"]
