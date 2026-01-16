@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExportPlan",
+  "type": "object",
+  "properties": {
+    "clips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["platform", "clip_index", "start", "end", "text", "score", "features"],
+        "properties": {
+          "platform": {"type": "string"},
+          "clip_index": {"type": "integer"},
+          "start": {"type": "number"},
+          "end": {"type": "number"},
+          "text": {"type": "string"},
+          "score": {"type": "number"},
+          "features": {"type": "object"}
+        }
+      }
+    }
+  },
+  "required": ["clips"]
+}

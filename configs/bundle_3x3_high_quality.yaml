@@ -1,0 +1,96 @@
+bundle:
+  platforms: [tiktok, shorts, reels]
+  clips_per_platform: 3
+  overlap_max_ratio: 0.25
+  candidate_pool: 80
+analysis:
+  speaker_mode: hybrid
+  face_backend: mediapipe
+  face_analysis_fps: 12
+  switch_hysteresis_ms: 400
+  confidence_threshold: 0.12
+  max_pan_speed: 0.25
+  max_zoom_rate: 0.08
+  crop_safe_margin_ratio: 0.12
+clip_selection:
+  require_hook_first_seconds: 2.5
+  avoid_mid_sentence_cut: true
+  use_scene_cut_hint: true
+  tiktok:
+    min_seconds: 12
+    max_seconds: 35
+  shorts:
+    min_seconds: 15
+    max_seconds: 45
+  reels:
+    min_seconds: 20
+    max_seconds: 60
+render:
+  width: 1080
+  height: 1920
+  fps_target: 60
+  fps_fallback: 30
+  codec: libx264
+  preset: medium
+  crf: 17
+  scaler: lanczos
+  pix_fmt: yuv420p
+  sharpen: false
+  denoise: false
+  audio:
+    codec: aac
+    sample_rate: 48000
+    bitrate: 192k
+    loudness_normalize: true
+subtitles:
+  punctuation: true
+  max_lines: 2
+  max_chars_per_line: 26
+  highlight: true
+  burn_in: true
+  safe_margin_ratio: 0.08
+templates:
+  tiktok:
+    name: tiktok_bold_highlight
+    font: "Arial Black"
+    font_size: 68
+    primary_color: "&H00FFFFFF"
+    highlight_color: "&H0000FFEE"
+    outline_color: "&H00000000"
+    outline: 3
+    shadow: 0
+    box: false
+  shorts:
+    name: shorts_clean
+    font: "Arial"
+    font_size: 56
+    primary_color: "&H00FFFFFF"
+    highlight_color: "&H0000FFD9"
+    outline_color: "&H00000000"
+    outline: 2
+    shadow: 0
+    box: false
+  reels:
+    name: reels_elegant
+    font: "Helvetica"
+    font_size: 60
+    primary_color: "&H00FFFFFF"
+    highlight_color: "&H00E6E6E6"
+    outline_color: "&H33000000"
+    outline: 2
+    shadow: 1
+    box: true
+    box_color: "&H55000000"
+niches:
+  tiktok:
+    name: education_tiktok
+    keywords: ["learn", "quick", "tip", "hack", "lesson", "how"]
+    cta_terms: ["follow", "share", "comment", "like"]
+  shorts:
+    name: education_shorts
+    keywords: ["explained", "insight", "concept", "why", "what", "how"]
+    cta_terms: ["subscribe", "like"]
+  reels:
+    name: education_reels
+    keywords: ["story", "insight", "journey", "lesson", "moment"]
+    cta_terms: ["save", "share"]

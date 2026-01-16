@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClipMeta",
+  "type": "object",
+  "required": ["platform", "clip_index", "start", "end", "text", "score", "features", "subtitles", "thumbnail"],
+  "properties": {
+    "platform": {"type": "string"},
+    "clip_index": {"type": "integer"},
+    "start": {"type": "number"},
+    "end": {"type": "number"},
+    "text": {"type": "string"},
+    "score": {"type": "number"},
+    "features": {"type": "object"},
+    "subtitles": {
+      "type": "object",
+      "required": ["srt", "vtt", "ass"],
+      "properties": {
+        "srt": {"type": "string"},
+        "vtt": {"type": "string"},
+        "ass": {"type": "string"}
+      }
+    },
+    "thumbnail": {"type": "string"}
+  }
+}
